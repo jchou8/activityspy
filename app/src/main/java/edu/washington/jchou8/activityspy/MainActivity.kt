@@ -3,6 +3,9 @@ package edu.washington.jchou8.activityspy
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.R.attr.keySet
+
+
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
@@ -11,7 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.i(TAG, "onCreate event fired")
         if (savedInstanceState != null) {
-            Log.i(TAG, savedInstanceState.toString())
+            for (key in savedInstanceState.keySet()) {
+                Log.i(TAG, "Bundle:  " + key + " = \"" + savedInstanceState.get(key) + "\"")
+            }
         }
 
         setContentView(R.layout.activity_main)
